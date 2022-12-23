@@ -1,17 +1,6 @@
 from src.extensions import db
 from flask import jsonify
 
-
-class DummyModel(db.Model):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    value = db.Column(db.String, nullable=False)
-
-    def json(self) -> str:
-        """
-        :return: Serializes this object to JSON
-        """
-        return jsonify({'id': self.id, 'value': self.value})
-
 class Doctor(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String, nullable=False)
@@ -32,13 +21,12 @@ class WorkingHours(db.Model):
 class Appointment(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     doctor_id = db.Column(db.Integer, nullable=False)
-    date = db.Column(db.Date, nullable=False)
-    start = db.Column(db.Integer, nullable=False)
-    end = db.Column(db.Integer, nullable=False)
+    start_time = db.Column(db.DateTime, nullable=False)
+    end_time = db.Column(db.DateTime, nullable=False)
 
     @property
     def serialize(self):
-        return {'id': self.id, 'doctor_id': self.doctor_id, 'date': self.date, 'start': self.start, 'end': self.end}
+        return {'id': self.id, 'doctor_id': self.doctor_id, 'start_time': self.start_time, 'end_time': self.end_time}
 
     def json(self) -> str:
-        return jsonify({'id': self.id, 'doctor_id': self.doctor_id, 'date': self.date, 'start': self.start, 'end': self.end})
+        return jsonify({'id': self.id, 'doctor_id': self.doctor_id, 'start_time': self.start_time, 'end_time': self.end_time})

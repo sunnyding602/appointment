@@ -31,9 +31,10 @@ export FLASK_DEBUG=1
 
 curl -H "Content-Type: application/json"  -d '{"value": "xixixi"}' -X POST http://192.168.50.46:8000/dummy_model
 
-curl -H "Content-Type: application/json"  -d '{"doctor_id": 1, "date": "2022-12-26", "start": 1200, "end": 1300}' -X POST http://192.168.50.46:8000/appointment
-curl -H "Content-Type: application/json"  -d '{"doctor_id": 1, "date": "2022-12-26", "start": 1300, "end": 1400}' -X POST http://192.168.50.46:8000/appointment
+curl -H "Content-Type: application/json"  -d '{"doctor_id": 1, "start_time": "2022-12-26 12:30", "end_time": "2022-12-26 13:30"}' -X POST http://192.168.50.46:8000/appointment
 
-curl -H "Content-Type: application/json"  -d '{"doctor_id": 1, "start_date": "2022-12-25", "end_date": "2022-12-26" }' -X GET http://192.168.50.46:8000/appointments
 
-curl -H "Content-Type: application/json"  -d '{"doctor_id": 1, "start_date": "2022-12-25", "duration": "30"}' -X GET http://192.168.50.46:8000/first_available_appointment
+curl -H "Content-Type: application/json"  -d '{"doctor_id": 1, "start_time": "2022-12-25 12:30", "end_time": "2022-12-26 17:30" }' -X GET http://192.168.50.46:8000/appointments
+
+
+curl -H "Content-Type: application/json"  -d '{"doctor_id": 1, "start_time": "2022-12-25 00:00", "duration": "30"}' -X GET http://192.168.50.46:8000/first_available_appointment
