@@ -21,15 +21,23 @@ This is meant to be barebones.
 * src/models.py contains all the database model definitions.
 * src/extensions.py sets up the extensions (https://flask.palletsprojects.com/en/2.0.x/extensions/)
 
-transaction
-unit test
-extract logic into a service layer
+## Todos
+1. transaction
+2. unit test
+3. extract logic into a service layer
+4. check input
+
+## Table structure
+![image](https://user-images.githubusercontent.com/2386727/209404460-46a9ca55-8597-430c-b0f9-937272307c0d.png)
+![image](https://user-images.githubusercontent.com/2386727/209404470-610de544-30e1-4683-a42b-c802bcb1f13b.png)
+![image](https://user-images.githubusercontent.com/2386727/209404478-06aaf029-fd57-4980-b377-d6e53f185b50.png)
 
 
+
+
+## Useful Commands
 export FLASK_DEBUG=1
 
-
-curl -H "Content-Type: application/json"  -d '{"value": "xixixi"}' -X POST http://192.168.50.46:8000/dummy_model
 
 curl -H "Content-Type: application/json"  -d '{"doctor_id": 1, "start_time": "2022-12-26 12:30", "end_time": "2022-12-26 13:30"}' -X POST http://192.168.50.46:8000/appointment
 
